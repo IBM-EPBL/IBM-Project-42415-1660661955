@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href=".\style.css" />
+    <title>Liver Disease Predictor</title>
+</head>
+<body class="text-center h-full w-full">
+    <div class="w-full h-100 bg-gradient-to-r from-orange-500 via-red-500 to-yellow-500 background-animate">
+      
+        <nav class="flex items-center justify-center flex content-center">
+            
+                
+                <h1 class="text-center text-7xl mt-8 font-semibold text-teal-100 ">Liver Disease Predictor</h1>
+        </nav>
+    </div>
+
+    <div class="w-full h-100 bg-gradient-to-r from-orange-500 via-red-500 to-yellow-500 background-animate">
+            <section class="px-8 py-12 text-slate-800  text-2xl font-sans ">
+                Liver diseases avert the normal function of the liver. Mainly due to the large amount of alcohol consumption liver disease arises. Early prediction of liver disease using classification algorithms is an efficacious task that can help the doctors to diagnose the disease within a short duration of time. Discovering the existence of liver disease at an early stage is a complex task for the doctors. The main objective of this project is to analyze the various parameters pertinent to a liver disease and predict using classification algorithms whether a disease is present or not.
+            </section>
+            
+
+        <!-- <button id="#predict" class="absolute bottom-4  left-1/2 bg-red-300 p-3 rounded-lg text-2xl ">Check Your Liver Health</button> -->
+    </div>
+
+    <div class="w-full h-100 bg-gradient-to-r from-orange-500 via-red-500 to-yellow-500 background-animate" id="predict">
+        <h3 class="text-center px-12 mb-12  font-semibold text-3xl">Check your Liver Health</h3>
+        
+        <form class="grid grid-cols-2 gap-8 px-10" action="{{ url_for('predict') }}" method="POST">
+            <input class="text-2xl px-4 py-2 rounded-lg" type="text" id="Age" placeholder="Age " name="Age" required="required">
+            <input class="text-2xl px-4 py-2 rounded-lg" type="text" id="Gender" placeholder="Gender (Male:1 , female:0)" name="Gender" required="required">
+            <input class="text-2xl px-4 py-2 rounded-lg" type="text" id="Total_Bilirubin" placeholder="Total Bilirubin" name="Total_Bilirubin" required="required">
+            <input class="text-2xl px-4 py-2 rounded-lg" type="text" id="Direct_Bilirubin" placeholder="Direct Bilirubin" name="Direct_Bilirubin" required="required">
+            <input class="text-2xl px-4 py-2 rounded-lg" type="text" id="Alkaline_Phosphotase" placeholder="Alkaline Phosphotase" name="Alkaline_Phosphotase"required="required">
+            <input class="text-2xl px-4 py-2 rounded-lg" type="text" id="Alamine_Aminotransferase" placeholder="Alamine Aminotransferase" name="Alamine_Aminotransferase" required="required">
+            <input class="text-2xl px-4 py-2 rounded-lg" type="text" id="Aspartate_Aminotransferase" placeholder="Aspartate Aminotransferase" name="Aspartate_Aminotransferase" required="required">
+            <input class="text-2xl px-4 py-2 rounded-lg" type="text" id="Total_Protiens" placeholder="Total Protiens" name="Total_Protiens" required="required">
+            <input class="text-2xl px-4 py-2 rounded-lg" type="text" id="Albumin" placeholder="Albumin " name="Albumin" required="required">
+            <input class="text-2xl px-4 py-2 rounded-lg" type="text" id="Albumin_and_Globulin_Ratio" placeholder="Albumin and Globulin Ratio" name="Albumin_and_Globulin_Ratio" required="required">
+        
+            <input id="button" class=" bg-yellow-500 w-40 border-solid px-6 py-3 col-span-2 rounded-2xl text-2xl hover:cursor-pointer " type="submit">
+        </form>
+        
+        
+
+
+        
+
+    </div>
+    <style>
+  body {
+    font-family: "Inter", sans-serif;
+  }
+
+  .background-animate {
+    background-size: 400%;
+
+    -webkit-animation: AnimationName 6s ease infinite;
+    -moz-animation: AnimationName 6s ease infinite;
+    animation: AnimationName 6s ease infinite;
+  }
+
+  @keyframes AnimationName {
+    0%,
+    100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+        #button{
+            margin-left: 635px;
+        }    
+</style>
+    
+    
+</body>
+</html>
+
+
+
+<!--  This Project examines data from liver patients concentrating on relationships between a key list of liver enzymes, proteins, age and gender using them to try and predict the likeliness of liver disease. Here we are building a model by applying various machine learning algorithms find the best accurate model. And integrate to flask based web application. User can predict the disease by entering parameters in the web application. -->
